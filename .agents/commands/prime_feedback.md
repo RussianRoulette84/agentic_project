@@ -75,7 +75,7 @@ Based on your analysis, implement ONLY what is needed. Common implementations:
 
 ## PHASE 4 — Write the Project Feedback Manifest
 
-Create a file: `.opencode/PROJECT_LOOP.md`
+Create a file: `.agents/PROJECT_LOOP.md`
 
 This file must contain the SPECIFIC, DISCOVERED truth about THIS project.
 

@@ -13,7 +13,7 @@ Search the codebase for files needed to complete the task using a fast, token ef
 
 USER_PROMPT: $1
 SCALE: $2 (defaults to 3)
-RELEVANT_FILE_OUTPUT_DIR: `agent/scout_files/`
+RELEVANT_FILE_OUTPUT_DIR: `agents/scout_files/`
 
 ## Instructions
 

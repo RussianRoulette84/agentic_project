@@ -34,7 +34,7 @@ prompt: $ARGUMENTS (IMPORTANT: second argument)
 
 - `README.md` - Project overview and instructions (start here)
 - `apps/` - Application layer you'll be working in
-- `.opencode/command/` - OpenCode command templates
+- `.agents/commands/` - Command templates
 - `specs/` - Specification and plan documents
 
 ## Plan Format

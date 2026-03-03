@@ -1,69 +1,95 @@
-# Agentic Project
-
-![Version](https://img.shields.io/badge/Version-v1.1-blue?style=for-the-badge)
-![AI Powered](https://img.shields.io/badge/AI-Powered-FF4B4B?style=for-the-badge&logo=openai&logoColor=white)
+![Version](https://img.shields.io/badge/Version-v1.2-blue?style=for-the-badge)
 
 ![Agentic Project Logo](logo.png)
 
----
+# Agentic Project
 
 This is a skeleton project designed for Agentic Development, structured to support AI agents with defined skills, commands, and documentation.
 
-**WARNING!:** *Don't fall into the agentic trap!!!* Using agents or too many rules to follow can drasticly decrease your LLM output quality! Read more at the end of this file.
+Just drag and drop `.agents/` and `AGENTS.md` into your project, or run:
+
+```bash
+python3 scripts/bootstrap_agents.py /path/to/your/project
+```
+
+The script copies `.agents/` and `AGENTS.md` into the target folder. When files already exist, it prompts: **Overwrite**, **Skip**, **Diff**, or **Merge** (append for .md files). Use **All overwrite** or **All skip** to apply the same choice to remaining conflicts.
+
+Don't forget to run **Prime** to familiarize the agent with your codebase, and **prime_feedback** (`.agents/commands/prime_feedback.md`) to set up your project for autonomous, self-correcting development.
+
+**WARNING!:** *Don't fall into the agentic trap!!!* Using agents or too many rules to follow can drastically decrease your LLM output quality! Read more at the end of this file. Keep AGENTS.md around 200 instructions tops. Read below why. 
+
+### Maturity Levels
+
+Your progression from copy-paste to fully autonomous development:
+
+| Level | What you get |
+|-------|--------------|
+| **1** | You use chatgpt.com in the browser and copy-paste code |
+| **2** | You advance to IDEs and TUI tools |
+| **3** | You start using the "PLAN" agent before tackling anything big |
+| **4** | You start using the "ASK" agent before any PLAN — two questions: *Any questions? Any concerns?* |
+| **5** | You start using `AGENTS.md` and `skills/commands` for each of your projects (and **this repo** helps you do that) |
+| **6** | You prime your projects with `prime.md`. You let your agents know about and control your project |
+| **7** | You set up full **Autonomous Feedback Loop** — agents run linters, debug themselves via logs, build output, and even the browser console(!!) so you don't have to. You gain 2–3× better results & speed |
+| **8** | You write specifications as long prompts using another LLM | 
+| **9** | You leave out the context-heavy work until the MVP is ready (Login, App Persistency, Internationalization, Compatibility, Database) — anything that has an avalanche effect on the codebase if you decide to make architectural changes midway through development. | 
+| **10** | You create frontend designs upfront using CSS themes, alongside the specification, when prompting. When the LLM is done, you ask 10–20×: *"What is NOT implemented according to the Specification and Design I provided?"* — use the OUTPUT as PLAN → BUILD → repeat until everything is perfect |
+| **11** | *Coming next* — You setup agents to see & interact with the frontend directly — which would create a **100% automated testing feedback loop** | 
+| **12** | You start asking: *"Search GitHub — maybe someone already did this?"* and you *integrate* rather than *implement* |
+| **13** | You don't touch code. You reply to LLM questions while agents run tests on the code |
+| **14** | You swipe through a gallery of specifications, designs, and solutions — coded on the fly as you swipe |
+| **15** | You use brainwaves to swipe left or right between designs, architectural choices, and business logic. You don't type, talk, or look. An AI helmet flashes images in your brain and gets prompts from your brainwave activity |
 
 
 Special thanks to **@IndyDevDan** and his Youtube video that inspired this project: [Youtube video](https://www.youtube.com/watch?v=fop_yxV-mPo)
 
-## How to use
-Delete files for the demo app in 'apps/' directory and plance your project files there. Then customize the MD files to support your project.
-
 ## Overview
-1. **Agents / Commands**: `.opencode/` directory
-2. **Project Specs**: `specs/`
-3. **App Reviews**: `app_reviews/`
-4. **Skills**: `.opencode/skill/`
+1. **Agents / Commands / Skills**: `.agents/` directory
+2. **Project Specs**: `specs/` that you create as big promts with progress tracking. This is bigger than just a simple "PLAN".
+3. **Reviews**: `reviews/` done by agents (security audits, etc)
+4. **Docs**: `docs/` for the LLM agents
 
 ## Agents & Commands
 - **Prime**: `prime [query]`
+- **Bootstrap Feedback Loop**: `prime_feedback` — One-time setup for autonomous, self-correcting development (log capture, process output, `.agents/PROJECT_LOOP.md`)
 - **Plan**: `plan [id] [prompt]`
 - **Scout**: `scout [query]`
 - **Review**: `review [feature]`
 - **Test Writer**: `test_writer`
 - **Documentation Fetcher**: `fetch_docs [urls]`
-- **Bootstrap Feedback Loop**: `bootstrap_feedback_loop` — One-time setup for autonomous, self-correcting development (log capture, process output, `.opencode/PROJECT_LOOP.md`)
 
 ## Project Structure
 
 ```text
 .
-├── .opencode/                # Agent definitions, commands, and skills
-│   ├── agent/             # Agent definitions
-│   │   ├── fetch_docs.md   # Documentation fetcher agent
-│   │   ├── review_agent.md # Code review agent
-│   │   ├── scout.md        # Codebase scout agent
-│   │   └── test_writer.md  # Test writing agent
-│   ├── command/           # Command definitions
-│   │   ├── bootstrap_feedback_loop.md  # Autonomous feedback loop setup
-│   │   ├── build.md        # Build/implementation command
-│   │   ├── document.md     # Documentation generator
-│   │   ├── plan.md         # Planning command
-│   │   ├── prime.md        # Codebase priming
-│   │   ├── pull_ticket.md  # Jira ticket puller
-│   │   ├── reproduce.md    # Bug reproduction
-│   │   ├── review.md       # Code review command
-│   │   ├── scout.md        # Scout command
-│   │   ├── start_apps.md   # App startup command
-│   │   ├── test_be.md      # Backend testing
-│   │   └── test_fe.md      # Frontend testing
-│   └── skill/             # Executable skills
-│       ├── db-migrate/     # Database migration skill
-│       └── start-stop-app/ # App lifecycle management
-├── docs/                # Project documentation for AI context
-├── apps/                   # Application source code
-│   ├── client/             # Python client application
-│   └── server/             # FastAPI/Python server application
-├── specs/                  # Technical specifications
-└── OPENCODE.md               # Main entry point/guide for OpenCode
+├── .agents/                    # Agents, Commands, and Skills (vendor-neutral)
+│   ├── agents/                 # Agent definitions
+│   │   ├── fetch_docs.md       # Documentation fetcher agent
+│   │   ├── review_agent.md     # Code review agent
+│   │   ├── scout.md            # Codebase scout agent
+│   │   └── test_writer.md      # Test writing agent
+│   ├── commands/               # Command definitions
+│   │   ├── prime_feedback.md   # Autonomous feedback loop setup
+│   │   ├── build.md            # Build/implementation command
+│   │   ├── document.md         # Documentation generator
+│   │   ├── plan.md             # Planning command
+│   │   ├── prime.md            # Codebase priming
+│   │   ├── pull_ticket.md      # Jira ticket puller
+│   │   ├── reproduce.md        # Bug reproduction
+│   │   ├── review.md           # Code review command
+│   │   ├── scout.md            # Scout command
+│   │   ├── start_apps.md       # App startup command
+│   │   ├── test_be.md          # Backend testing
+│   │   └── test_fe.md          # Frontend testing
+│   └── skills/                 # Executable skills
+│       ├── db-migrate/         # Database migration skill
+│       └── start-stop-app/     # App lifecycle management
+├── docs/                       # Project documentation for AI context
+├── apps/                       # Application source code
+│   ├── client/                 # Python client application
+│   └── server/                 # FastAPI/Python server application
+├── specs/                      # Technical specifications
+└── AGENTS.md                   # Main entry point for AI agents
 ```
 
 ## Reference Links

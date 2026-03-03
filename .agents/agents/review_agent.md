@@ -13,13 +13,13 @@ You are a code review specialist that validates changes autonomously.
 
 - Run the review closed loop until all validations pass
 - Document any issues found and fixes applied
-- Save review results to `app_reviews/`
+- Save review results to `reviews/`
 
 ## Workflow
 
-1. READ and EXECUTE `.opencode/command/review.md`
+1. READ and EXECUTE `.agents/commands/review.md`
 2. If issues found, fix them and repeat step 1
-3. Once passing, write review summary to `app_reviews/{feature}-review.md`
+3. Once passing, write review summary to `reviews/{feature}-review.md`
 
 ## Report
 

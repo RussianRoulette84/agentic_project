@@ -18,7 +18,7 @@ BUG_DESCRIPTION: $ARGUMENTS
 - Document exact steps to reproduce
 - Capture relevant error messages and logs
 - Identify root cause if possible
-- Save resolution file to `app_reviews/`
+- Save resolution file to `reviews/`
 
 ## Workflow
 
@@ -37,7 +37,7 @@ BUG_DESCRIPTION: $ARGUMENTS
    - Identify the problematic code
    - Note potential fix approaches
    - Do NOT implement the fix
-6. Write resolution file to `app_reviews/bug-{descriptive-name}-resolution.md`
+6. Write resolution file to `reviews/bug-{descriptive-name}-resolution.md`
 
 ## Resolution File Format
 
