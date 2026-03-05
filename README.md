@@ -20,25 +20,38 @@ Don't forget to run **Prime** to familiarize the agent with your codebase, and *
 
 ### Maturity Levels
 
-Your progression from copy-paste to fully autonomous development:
+From Copy-Paste to Autonomous Development
+
+| Level | Quality | Speed | What you get |
+|-------|---------|-------|--------------|
+| **1** | 1.5x | 1.5x | You use chatgpt.com in the browser and copy-paste code |
+| **2** | 2x | 2x | You advance to IDEs and TUI tools |
+| **3** | 2.5x | 2.5x | You start using the "PLAN" agent before tackling anything big |
+| **4** | 3x | 3x | You start using the "ASK" agent before any PLAN — two questions: *Any questions? Any concerns?* |
+| **5** | 3.5x | 3x | You use different models for different tasks. You minimize context degradation. You know your token limits and use think-first vs tool-first models properly |
+| **6** | 4x | 4x | You start using `AGENTS.md` and `skills/commands` for each of your projects |
+| **7** | 4.5x | 4.5x | You don't fall into the agentic trap — one giant context, one confused agent, zero results. You split responsibilities across multiple focused agents and MD files |
+| **8** | 5x | 6x | You prime your projects with `prime.md`. You let your agents know about and control your project |
+| **9** | 6x | 10x | You set up full **Autonomous Feedback Loop** — agents run linters, run tests, they run and catch exceptions and runtime errors, read logs, build outputs, and even the browser console. You setup agents to see and interact with the Frontend directly. You achieve a **100% automated testing feedback loop**. You gain 2–3× better results & speed |
+| **10** | 7x | 12x | You write specifications as long prompts using another LLM |
+| **11** | 8x | 13x | You leave out the context-heavy work until the MVP is ready — anything with an avalanche effect on the codebase |
+| **12** | 9x | 15x | You create frontend designs upfront using CSS themes alongside the specification. When done, you ask 10–20×: *"What is NOT implemented?"* — use OUTPUT as PLAN → BUILD → repeat |
+| **13** | 10x | 16x | You start asking: *"Search GitHub — maybe someone already did this?"* and you integrate rather than implement |
+| **14** | 11x | 18x | You setup LSP, Vector DB and MCP together. Your agents have structural code understanding with long-term memory. Your stack becomes a living, connected organism |
+| **15** | 12x | 20x | Your agents remember your coding style, libraries, and past mistakes across projects. Every new project starts with accumulated context. You version control your prompts and agent configs — `AGENTS.md`, `prime.md`, `MEMORY.md` in git like any other codebase asset |
+| **16** | 13x | 20x | You setup sandboxed environments, boundaries, permissions and protect yourself against prompt injections |
+| **17** | 15x | 25x | You orchestrate multiple specialized agents in parallel — planner, coder, reviewer, tester — running concurrently on the same task. You build a router that automatically sends tasks to the right model based on complexity and cost |
+| **18** | 16x | 30x | You setup agents to see and interact with the frontend directly — a direct application of parallel orchestration. You achieve a **100% automated testing feedback loop** |
+| **19** | 20x | 50x | You run a software business without a dev team. Agents handle implementation, testing, deployment, monitoring — including blue-green and canary deployments. You handle product and architecture. One person, the output of a 10-person team |
+
+
+#### ONE DAY
 
 | Level | What you get |
 |-------|--------------|
-| **1** | You use chatgpt.com in the browser and copy-paste code |
-| **2** | You advance to IDEs and TUI tools |
-| **3** | You start using the "PLAN" agent before tackling anything big |
-| **4** | You start using the "ASK" agent before any PLAN — two questions: *Any questions? Any concerns?* |
-| **5** | You start using `AGENTS.md` and `skills/commands` for each of your projects (and **this repo** helps you do that) |
-| **6** | You prime your projects with `prime.md`. You let your agents know about and control your project |
-| **7** | You set up full **Autonomous Feedback Loop** — agents run linters, debug themselves via logs, build output, and even the browser console(!!) so you don't have to. You gain 2–3× better results & speed |
-| **8** | You write specifications as long prompts using another LLM | 
-| **9** | You leave out the context-heavy work until the MVP is ready (Login, App Persistency, Internationalization, Compatibility, Database) — anything that has an avalanche effect on the codebase if you decide to make architectural changes midway through development. | 
-| **10** | You create frontend designs upfront using CSS themes, alongside the specification, when prompting. When the LLM is done, you ask 10–20×: *"What is NOT implemented according to the Specification and Design I provided?"* — use the OUTPUT as PLAN → BUILD → repeat until everything is perfect |
-| **11** | *Coming next* — You setup agents to see & interact with the frontend directly — which would create a **100% automated testing feedback loop** | 
-| **12** | You start asking: *"Search GitHub — maybe someone already did this?"* and you *integrate* rather than *implement* |
-| **13** | You don't touch code. You reply to LLM questions while agents run tests on the code |
-| **14** | You swipe through a gallery of specifications, designs, and solutions — coded on the fly as you swipe |
-| **15** | You use brainwaves to swipe left or right between designs, architectural choices, and business logic. You don't type, talk, or look. An AI helmet flashes images in your brain and gets prompts from your brainwave activity |
+| **1** | You don't touch code. You reply to LLM questions while agents run tests on the code |
+| **2** | You swipe through a gallery of specifications, designs, and solutions — coded on the fly as you swipe |
+| **3** | You use brainwaves to swipe left or right between designs, architectural choices, and business logic. You don't type, talk, or look. An AI helmet flashes images in your brain and gets prompts from your brainwave activity |
 
 
 Special thanks to **@IndyDevDan** and his Youtube video that inspired this project: [Youtube video](https://www.youtube.com/watch?v=fop_yxV-mPo)
